@@ -1,0 +1,21 @@
+## -------------------- 其他说明 --------------------
+  本地离线安装介绍
+
+### prometheus-operator安装prometheus依赖的镜像
+* quay.io/prometheus/alertmanager:v0.15.0
+* quay.io/coreos/configmap-reload:v0.0.1
+* grafana/grafana:5.2.1
+* quay.io/coreos/grafana-watcher:v0.0.8  (非必须)
+* quay.io/coreos/kube-rbac-proxy:v0.3.1
+* quay.io/coreos/addon-resizer:1.0
+* quay.io/coreos/kube-state-metrics:v1.3.1
+* quay.io/prometheus/node-exporter:v0.15.2
+* quay.io/coreos/prometheus-config-reloader:v0.20.0
+* quay.io/prometheus/prometheus:v2.3.1
+* quay.io/coreos/prometheus-operator:v0.23.0
+
+
+### 修改.yaml文件中依赖的Image地址(使用本地镜像 OR 自建Registry or Harbor)
+* 1. grep -ri "image:" manifests
+* 2. 修改配置的镜像路径
+

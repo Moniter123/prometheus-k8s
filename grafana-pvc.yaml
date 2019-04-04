@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dr-grafana
+  labels:
+    app: dr-grafana
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+  - ReadWriteOnce # required
+  nfs:
+    server: 127.0.0.1
+    path: /opt/nfsserver
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: dr-grafana
+  namespace: monitoring
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
